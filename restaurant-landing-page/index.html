@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <title>LUMIÈRE — Fine Dining Restaurant | Reserve a Table</title>
+  <meta name="description" content="LUMIÈRE is a demo fine-dining restaurant concept: seasonal menu, chef's specials, gallery and online table reservation form. Where every meal becomes a memory.">
+  <meta name="theme-color" content="#171A17">
+  <meta property="og:title" content="LUMIÈRE — Restaurant & Dining">
+  <meta property="og:description" content="An unforgettable dining experience, crafted with passion.">
+  <meta property="og:type" content="website">
+
+  <!-- Adds a "js" class so CSS only hides reveal-elements when JavaScript is running -->
+  <script>document.documentElement.classList.add("js");</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ICON SPRITE: define once, reuse with <use href="#icon-name"> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+      <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M3 21l1.7-5.1A8.5 8.5 0 1 1 8 19.4L3 21z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.2-1.8-1-.8.6a3.5 3.5 0 0 1-1.7-1.7l.6-.8-1-1.8L9 9.5z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M22.5 7.2a2.5 2.5 0 0 0-1.8-1.8C19.1 5 12 5 12 5s-7.100 0-8.700.4A2.500 2.500 0 0 0 1.500 7.200C1 8.800 1 12 1 12s0 3.200.5 4.800a2.500 2.500 0 0 0 1.800 1.800C4.900 19 12 19 12 19s7.100 0 8.700-.4a2.500 2.500 0 0 0 1.800-1.800c.5-1.600.5-4.800.5-4.800s0-3.200-.5-4.800z"/><path d="m10 15 5-3-5-3z"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.900 1-5 4.900 1.200 6.800L12 17.700 5.800 21l1.200-6.800-5-4.900 6.900-1z"/></symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.800 6.100C15.500 5 17 4.500 19 2c1 2 2 4.200 2 8 0 5.500-4.800 10-10 10z"/><path d="M2 21c0-3 1.900-5.400 5-6 3-.5 6-2 8-4"/></symbol>
+      <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.500 14.500A2.500 2.500 0 0 0 11 12c0-1.400-.5-2-1-3-1.100-2.100-.2-4 2-6 .5 2.500 2 4.900 4 6.500 2 1.600 3 3.500 3 5.500a7 7 0 1 1-14 0c0-1.200.4-2.400 1-3 0 1.300 1 2.500 2.500 2.500z"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.500-1.500 3-3.200 3-5.500A5.500 5.500 0 0 0 16.500 3c-1.800 0-3 .5-4.500 2-1.500-1.500-2.700-2-4.500-2A5.500 5.500 0 0 0 2 8.500c0 2.300 1.500 4 3 5.500l7 7z"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ SECTION 01 — NAVIGATION & HERO ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="#home" aria-label="LUMIÈRE — back to top">LUMIÈRE</a>
+
+      <button class="nav-toggle" id="navToggle" type="button"
+              aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
+        <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#menu">Menu</a></li>
+          <li><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <a class="btn btn-gold nav-cta" href="#reservation">Reserve a Table</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <img class="hero-image"
+           src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=75"
+           alt="A beautifully plated fine-dining dish on a candlelit restaurant table"
+           width="1920" height="1280" fetchpriority="high">
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <p class="eyebrow eyebrow-light">Fine Dining · Seasonal Kitchen</p>
+        <h1 id="hero-title" class="hero-title">Where Every Meal Becomes a&nbsp;Memory.</h1>
+        <p class="hero-text">Discover exceptional flavors, thoughtfully prepared dishes, and an atmosphere designed to make every moment special.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#menu">Explore Our Menu</a>
+          <a class="btn btn-outline-light" href="#reservation">Reserve a Table</a>
+        </div>
+        <ul class="hero-facts" aria-label="Quick facts">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg> Open daily from 5 PM</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg> Locally sourced ingredients</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg> Sample rating 4.9 / 5</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 02 — ABOUT ============ -->
+    <section class="section section-cream" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-media" data-reveal>
+          <img class="about-img-main"
+               src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=75"
+               alt="Warmly lit LUMIÈRE dining room with set tables and soft ambient lighting"
+               width="900" height="1125" loading="lazy">
+          <img class="about-img-small"
+               src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=75"
+               alt="Chef carefully finishing a dish in the kitchen"
+               width="600" height="600" loading="lazy">
+        </div>
+
+        <div class="about-copy" data-reveal>
+          <p class="eyebrow">Our Story</p>
+          <h2 id="about-title" class="section-title">Honest ingredients, handled with care.</h2>
+          <p>LUMIÈRE began with a simple idea: a table where nobody is rushed and every plate tells you where it came from. We cook with seasonal produce from nearby growers and let each ingredient speak for itself.</p>
+          <p>Our dining philosophy is hospitality first. Whether it is a quiet dinner for two, a family celebration or a business evening, we want you to leave feeling looked after.</p>
+
+          <ul class="pillars">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg><span><strong>Seasonal</strong> menus that change with the harvest</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-flame"/></svg><span><strong>Crafted</strong> from scratch in our open kitchen</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg><span><strong>Welcoming</strong> service for every occasion</span></li>
+          </ul>
+
+          <figure class="chef-note">
+            <blockquote>"Cooking is the art of paying attention. We just try to pay a little more."</blockquote>
+            <figcaption><strong>Chef Amara Voss</strong> <span>— Head Chef (fictional sample)</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 03 — FEATURED MENU ============ -->
+    <section class="section section-white" id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">The Menu</p>
+          <h2 id="menu-title" class="section-title">Featured dishes</h2>
+          <p class="section-lead">Sample menu and prices shown for demonstration. No need to call us to ask what's cooking.</p>
+        </header>
+
+        <div class="filter-bar" role="group" aria-label="Filter menu by category" data-reveal>
+          <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-btn" data-filter="starters" aria-pressed="false">Starters</button>
+          <button type="button" class="filter-btn" data-filter="mains" aria-pressed="false">Main Course</button>
+          <button type="button" class="filter-btn" data-filter="desserts" aria-pressed="false">Desserts</button>
+          <button type="button" class="filter-btn" data-filter="drinks" aria-pressed="false">Drinks</button>
+        </div>
+
+        <p class="visually-hidden" id="menuStatus" role="status" aria-live="polite"></p>
+
+        <ul class="menu-grid" id="menuGrid">
+          <li class="menu-card" data-category="starters">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&h=525&q=75" alt="Fresh heirloom tomato salad with herbs and olive oil" width="700" height="525" loading="lazy">
+            <div class="menu-body">
+              <p class="menu-cat">Starter</p>
+              <div class="menu-row"><h3>Heirloom Tomato Salad</h3><span class="price">$14</span></div>
+              <p>Vine-ripened tomatoes, basil oil, whipped ricotta and toasted seeds.</p>
+            </div>
+          </li>
+          <li class="menu-card" data-category="starters">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=700&h=525&q=75" alt="Roasted beetroot and goat cheese salad with fresh greens" width="700" height="525" loading="lazy">
+            <div class="menu-body">
+              <p class="menu-cat">Starter</p>
+              <div class="menu-row"><h3>Roasted Beet &amp; Goat Cheese</h3><span class="price">$16</span></div>
+              <p>Honey-roasted beets, soft goat cheese, candied walnuts and baby greens.</p>
+            </div>
+          </li>
+          <li class="menu-card" data-category="mains">
+            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=700&h=525&q=75" alt="Sliced dry-aged ribeye steak cooked medium rare" width="700" height="525" loading="lazy">
+            <div class="menu-body">
+              <p class="menu-cat">Main Course</p>
+              <div class="menu-row"><h3>Dry-Aged Ribeye</h3><span class="price">$42</span></div>
+              <p>28-day aged beef, roasted garlic butter, charred greens and pommes purée.</p>
+            </div>
+          </li>
+          <li class="menu-card" data-category="mains">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=700&h=525&q=75" alt="Pan-seared salmon fillet with a citrus glaze and vegetables" width="700" height="525" loading="lazy">
+            <div class="menu-body">
+              <p class="menu-cat">Main Course</p>
+              <div class="menu-row"><h3>Citrus-Glazed Salmon</h3><span class="price">$34</span></div>
+              <p>Crisp-skinned salmon, orange glaze, fennel salad and new potatoes.</p>
+            </div>
+          </li>
+          <li class="menu-card" data-category="mains">
+            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&h=525&q=75" alt="Handmade tagliatelle pasta with fresh tomato sauce" width="700" height="525" loading="lazy">
+            <div class="menu-body">
+              <p class="menu-cat">Main Course</p>
+              <div class="menu-row"><h3>Handmade Tagliatelle</h3><span class="price">$26</span></div>
+              <p>Fresh egg pasta, slow-cooked tomato sugo, basil and aged parmesan.</p>
+            </div>
+          </li>
+          <li class="menu-card" data-category="desserts">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&h=525&q=75" alt="Dark chocolate cake slice with a glossy finish" width="700" height="525" loading="lazy">
+            <div class="menu-body">
+              <p class="menu-cat">Dessert</p>
+              <div class="menu-row"><h3>Dark Chocolate Fondant</h3><span class="price">$12</span></div>
+              <p>Warm molten centre, sea salt and vanilla bean cream.</p>
+            </div>
+          </li>
+          <li class="menu-card" data-category="desserts">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&h=525&q=75" alt="Elegant plated dessert with fresh berries" width="700" height="525" loading="lazy">
+            <div class="menu-body">
+              <p class="menu-cat">Dessert</p>
+              <div class="menu-row"><h3>Vanilla Panna Cotta</h3><span class="price">$11</span></div>
+              <p>Silky vanilla cream with a macerated berry compote.</p>
+            </div>
+          </li>
+          <li class="menu-card" data-category="desserts">
+            <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?auto=format&fit=crop&w=700&h=525&q=75" alt="Seasonal fruit tart on a white plate" width="700" height="525" loading="lazy">
+            <div class="menu-body">
+              <p class="menu-cat">Dessert</p>
+              <div class="menu-row"><h3>Seasonal Berry Tart</h3><span class="price">$12</span></div>
+              <p>Buttery pastry, almond frangipane and glazed fresh berries.</p>
+            </div>
+          </li>
+          <li class="menu-card" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=700&h=525&q=75" alt="Classic whiskey cocktail served over ice with an orange peel" width="700" height="525" loading="lazy">
+            <div class="menu-body">
+              <p class="menu-cat">Drink</p>
+              <div class="menu-row"><h3>Smoked Old Fashioned</h3><span class="price">$15</span></div>
+              <p>Bourbon, demerara, aromatic bitters and an orange twist.</p>
+            </div>
+          </li>
+          <li class="menu-card" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=700&h=525&q=75" alt="Colourful cocktails served in glasses at a restaurant bar" width="700" height="525" loading="lazy">
+            <div class="menu-body">
+              <p class="menu-cat">Drink</p>
+              <div class="menu-row"><h3>Blood Orange Spritz</h3><span class="price">$13</span></div>
+              <p>Blood orange, sparkling wine, a touch of rosemary and soda.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 04 — CHEF'S SPECIALS ============ -->
+    <section class="section section-dark specials" id="specials" aria-labelledby="specials-title">
+      <div class="container">
+        <header class="section-head section-head-light" data-reveal>
+          <p class="eyebrow eyebrow-light">Chef's Specials</p>
+          <h2 id="specials-title" class="section-title">Signature dishes, served this season</h2>
+        </header>
+
+        <article class="special" data-reveal>
+          <img class="special-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1100&h=825&q=75" alt="Charred ribeye steak plated with sauce and herbs" width="1100" height="825" loading="lazy">
+          <div class="special-body">
+            <p class="special-tag">Signature No. 01</p>
+            <h3>Charred Ribeye, Bone Marrow Jus</h3>
+            <p class="special-desc">Our most requested plate. Aged beef seared over open flame and finished with a glossy marrow jus.</p>
+            <p class="special-ingredients"><strong>Ingredients:</strong> dry-aged ribeye, bone marrow, shallot, thyme, smoked sea salt, garlic butter</p>
+            <div class="special-foot">
+              <span class="special-price">$48</span>
+              <a class="btn btn-gold" href="#reservation">Reserve to Try It</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="special special-reverse" data-reveal>
+          <img class="special-img" src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=1100&h=825&q=75" alt="Creamy saffron risotto plated with fresh garnish" width="1100" height="825" loading="lazy">
+          <div class="special-body">
+            <p class="special-tag">Signature No. 02</p>
+            <h3>Saffron Risotto</h3>
+            <p class="special-desc">Slowly stirred carnaroli rice, golden saffron and a finish of aged parmesan. Simple, rich and deeply comforting.</p>
+            <p class="special-ingredients"><strong>Ingredients:</strong> carnaroli rice, saffron, white wine, parmesan, butter, lemon zest</p>
+            <div class="special-foot">
+              <span class="special-price">$32</span>
+              <a class="btn btn-gold" href="#reservation">Reserve to Try It</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="special" data-reveal>
+          <img class="special-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1100&h=825&q=75" alt="Chef's signature plate with seasonal vegetables and sauces" width="1100" height="825" loading="lazy">
+          <div class="special-body">
+            <p class="special-tag">Signature No. 03</p>
+            <h3>Chef's Seasonal Tasting Plate</h3>
+            <p class="special-desc">A rotating plate built around whatever our growers delivered that morning. Ask your server what's on today.</p>
+            <p class="special-ingredients"><strong>Ingredients:</strong> seasonal vegetables, herb oil, house-made cultured butter, toasted grains</p>
+            <div class="special-foot">
+              <span class="special-price">$38</span>
+              <a class="btn btn-gold" href="#reservation">Reserve to Try It</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 05 — GALLERY ============ -->
+    <section class="section section-cream" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Gallery</p>
+          <h2 id="gallery-title" class="section-title">A look inside LUMIÈRE</h2>
+          <p class="section-lead">Select any photo to view it larger.</p>
+        </header>
+
+        <ul class="gallery-grid" id="galleryGrid">
+          <li class="gallery-item gallery-wide">
+            <button type="button" class="gallery-btn" data-full="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80" data-caption="The main dining room at dusk">
+              <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&h=600&q=75" alt="Main dining room with warm pendant lighting and wooden tables" width="900" height="600" loading="lazy">
+              <svg class="icon gallery-icon" aria-hidden="true"><use href="#i-expand"/></svg>
+              <span class="visually-hidden">View larger: main dining room</span>
+            </button>
+          </li>
+          <li class="gallery-item gallery-tall">
+            <button type="button" class="gallery-btn" data-full="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80" data-caption="Our open kitchen in service">
+              <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&h=900&q=75" alt="Chefs working in a professional restaurant kitchen" width="600" height="900" loading="lazy">
+              <svg class="icon gallery-icon" aria-hidden="true"><use href="#i-expand"/></svg>
+              <span class="visually-hidden">View larger: open kitchen</span>
+            </button>
+          </li>
+          <li class="gallery-item">
+            <button type="button" class="gallery-btn" data-full="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1600&q=80" data-caption="Dishes ready to leave the pass">
+              <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=600&h=600&q=75" alt="Freshly prepared dishes on a restaurant table" width="600" height="600" loading="lazy">
+              <svg class="icon gallery-icon" aria-hidden="true"><use href="#i-expand"/></svg>
+              <span class="visually-hidden">View larger: plated dishes</span>
+            </button>
+          </li>
+          <li class="gallery-item">
+            <button type="button" class="gallery-btn" data-full="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?auto=format&fit=crop&w=1600&q=80" data-caption="Evening service, wine and good company">
+              <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?auto=format&fit=crop&w=600&h=600&q=75" alt="Dinner table set with wine glasses and food" width="600" height="600" loading="lazy">
+              <svg class="icon gallery-icon" aria-hidden="true"><use href="#i-expand"/></svg>
+              <span class="visually-hidden">View larger: dinner table with wine</span>
+            </button>
+          </li>
+          <li class="gallery-item">
+            <button type="button" class="gallery-btn" data-full="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=80" data-caption="An intimate corner for two">
+              <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=600&h=600&q=75" alt="Cosy restaurant interior with tables and ambient lighting" width="600" height="600" loading="lazy">
+              <svg class="icon gallery-icon" aria-hidden="true"><use href="#i-expand"/></svg>
+              <span class="visually-hidden">View larger: restaurant interior</span>
+            </button>
+          </li>
+          <li class="gallery-item">
+            <button type="button" class="gallery-btn" data-full="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1400&q=80" data-caption="Final touches at the pass">
+              <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&h=600&q=75" alt="Chef plating a dish with precision" width="600" height="600" loading="lazy">
+              <svg class="icon gallery-icon" aria-hidden="true"><use href="#i-expand"/></svg>
+              <span class="visually-hidden">View larger: chef plating a dish</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 06 — RESERVATION ============ -->
+    <section class="section section-dark" id="reservation" aria-labelledby="reservation-title">
+      <div class="container reservation-grid">
+
+        <div class="reservation-copy" data-reveal>
+          <p class="eyebrow eyebrow-light">Reservations</p>
+          <h2 id="reservation-title" class="section-title">Reserve your table</h2>
+          <p>Tell us when you'd like to dine and how many guests are joining. We'll make it a night to remember.</p>
+          <ul class="reservation-points">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg> Dinner service 5:00 PM – 10:30 PM</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg> Celebrations and special requests welcome</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> Parties over 12? Call or message us</li>
+          </ul>
+
+          <p class="demo-notice" role="note">
+            <strong>Frontend demo only.</strong> This form checks your input but does <em>not</em> send or store anything. Real reservations need a backend or a booking service (for example, an email API or a platform like OpenTable).
+          </p>
+        </div>
+
+        <div class="form-card" data-reveal>
+          <form id="reservationForm" novalidate>
+            <div class="form-summary" id="formSummary" role="alert" tabindex="-1" hidden></div>
+
+            <div class="form-grid">
+              <div class="field field-full">
+                <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-error">
+                <p class="field-error" id="name-error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required aria-describedby="email-error">
+                <p class="field-error" id="email-error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required aria-describedby="phone-hint phone-error">
+                <p class="field-hint" id="phone-hint">Include country code, e.g. +1 555 010 0199</p>
+                <p class="field-error" id="phone-error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="date">Date <span class="req" aria-hidden="true">*</span></label>
+                <input type="date" id="date" name="date" required aria-describedby="date-error">
+                <p class="field-error" id="date-error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="time">Time <span class="req" aria-hidden="true">*</span></label>
+                <select id="time" name="time" required aria-describedby="time-error">
+                  <option value="">Select a time</option>
+                  <option>17:00</option><option>17:30</option>
+                  <option>18:00</option><option>18:30</option>
+                  <option>19:00</option><option>19:30</option>
+                  <option>20:00</option><option>20:30</option>
+                  <option>21:00</option><option>21:30</option>
+                  <option>22:00</option>
+                </select>
+                <p class="field-error" id="time-error" aria-live="polite"></p>
+              </div>
+
+              <div class="field field-full">
+                <label for="guests">Number of guests <span class="req" aria-hidden="true">*</span></label>
+                <input type="number" id="guests" name="guests" min="1" max="12" step="1" inputmode="numeric" required aria-describedby="guests-hint guests-error">
+                <p class="field-hint" id="guests-hint">Between 1 and 12 guests</p>
+                <p class="field-error" id="guests-error" aria-live="polite"></p>
+              </div>
+
+              <div class="field field-full">
+                <label for="requests">Special requests <span class="optional">(optional)</span></label>
+                <textarea id="requests" name="requests" rows="3" maxlength="300" placeholder="Allergies, celebrations, seating preferences..." aria-describedby="requests-count"></textarea>
+                <p class="field-hint" id="requests-count">0 / 300</p>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-gold btn-block" id="submitBtn">Request Reservation</button>
+          </form>
+
+          <div class="form-success" id="formSuccess" role="status" tabindex="-1" hidden>
+            <svg class="icon success-icon" aria-hidden="true"><use href="#i-check"/></svg>
+            <h3>Thank you, <span id="successName">guest</span>!</h3>
+            <p id="successDetails"></p>
+            <p class="demo-notice demo-notice-inline"><strong>Demo notice:</strong> nothing was sent or saved. A real version would connect this form to a backend or booking service.</p>
+            <button type="button" class="btn btn-outline-light" id="newReservationBtn">Make another request</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 07 — TESTIMONIALS ============ -->
+    <section class="section section-cream" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Guest Voices</p>
+          <h2 id="testimonials-title" class="section-title">What our guests say</h2>
+          <p class="section-lead">Sample reviews written for this demo, from fictional guests.</p>
+        </header>
+
+        <ul class="testimonial-grid">
+          <li class="testimonial" data-reveal>
+            <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+              <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+            </div>
+            <blockquote>"We celebrated our anniversary here and the staff made it feel effortless. The ribeye was perfect, and nobody rushed us once."</blockquote>
+            <p class="reviewer"><strong>Sofia &amp; Daniel R.</strong><span>Anniversary dinner · Sample review</span></p>
+          </li>
+          <li class="testimonial" data-reveal>
+            <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+              <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+            </div>
+            <blockquote>"Booked a table for a client dinner. Calm room, great service and a menu with something for everyone. We'll be back."</blockquote>
+            <p class="reviewer"><strong>Marcus T.</strong><span>Business dinner · Sample review</span></p>
+          </li>
+          <li class="testimonial" data-reveal>
+            <div class="stars" role="img" aria-label="Rated 4 out of 5 stars">
+              <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-muted" aria-hidden="true"><use href="#i-star"/></svg>
+            </div>
+            <blockquote>"Brought the whole family for my mum's birthday. The kids loved the pasta and the chocolate fondant stole the show."</blockquote>
+            <p class="reviewer"><strong>Priya N.</strong><span>Family celebration · Sample review</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 08 — CONTACT & LOCATION ============ -->
+    <section class="section section-white" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+
+        <div class="contact-info" data-reveal>
+          <p class="eyebrow">Visit Us</p>
+          <h2 id="contact-title" class="section-title">Find us &amp; get in touch</h2>
+          <p class="demo-notice demo-notice-light" role="note"><strong>Demo contact details.</strong> LUMIÈRE is a fictional restaurant. The address, phone number and email below are placeholders.</p>
+
+          <ul class="contact-list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+              <div><strong>Address</strong><address>123 Example Street, Sample City<br>(Demo address, not a real location)</address></div></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              <div><strong>Phone</strong><a href="tel:+15555550123">+1 (555) 555-0123</a></div></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              <div><strong>Email</strong><a href="mailto:hello@lumiere-demo.example">hello@lumiere-demo.example</a></div></li>
+          </ul>
+
+          <div class="hours">
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg> Opening hours</h3>
+            <dl>
+              <div><dt>Monday – Thursday</dt><dd>5:00 PM – 10:00 PM</dd></div>
+              <div><dt>Friday – Saturday</dt><dd>5:00 PM – 11:00 PM</dd></div>
+              <div><dt>Sunday</dt><dd>1:00 PM – 9:00 PM</dd></div>
+            </dl>
+          </div>
+
+          <a class="btn btn-whatsapp" id="whatsappBtn" target="_blank" rel="noopener noreferrer"
+             href="https://wa.me/15555550123?text=Hello%20LUMI%C3%88RE%2C%20I%27d%20like%20to%20ask%20about%20a%20table%20reservation.">
+            <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+            Chat on WhatsApp
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+        </div>
+
+        <div class="map-card" data-reveal>
+          <svg class="map-svg" viewBox="0 0 600 460" role="img" aria-label="Illustrated demo map showing a marked location. Not a real address.">
+            <rect width="600" height="460" fill="#E9E2D4"/>
+            <g fill="#DDD3C0">
+              <rect x="30" y="30" width="150" height="110" rx="6"/><rect x="210" y="30" width="170" height="110" rx="6"/><rect x="410" y="30" width="160" height="110" rx="6"/>
+              <rect x="30" y="170" width="150" height="120" rx="6"/><rect x="410" y="170" width="160" height="120" rx="6"/>
+              <rect x="30" y="320" width="150" height="110" rx="6"/><rect x="210" y="320" width="170" height="110" rx="6"/><rect x="410" y="320" width="160" height="110" rx="6"/>
+            </g>
+            <rect x="210" y="170" width="170" height="120" rx="6" fill="#CFD8C2"/>
+            <g stroke="#FFFFFF" stroke-width="14" stroke-linecap="round">
+              <path d="M0 155h600M0 305h600M195 0v460M395 0v460"/>
+            </g>
+            <g transform="translate(295 205)">
+              <path d="M0 62C0 62 -28 28 -28 4a28 28 0 0 1 56 0C28 28 0 62 0 62z" fill="#B58A56" stroke="#171A17" stroke-width="3"/>
+              <circle cx="0" cy="4" r="10" fill="#171A17"/>
+            </g>
+          </svg>
+          <p class="map-label"><strong>DEMO LOCATION</strong> Illustrative map only. Replace with a real embedded map for a live client site.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ SECTION 09 — FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#home" aria-label="LUMIÈRE — back to top">LUMIÈRE</a>
+        <p>An unforgettable dining experience, crafted with passion. A fictional restaurant created as a front-end portfolio project.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Footer">
+        <h2 class="footer-title">Explore</h2>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#specials">Chef's Specials</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reservation">Reserve a Table</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h2 class="footer-title">Contact</h2>
+        <ul>
+          <li>123 Example Street, Sample City</li>
+          <li><a href="tel:+15555550123">+1 (555) 555-0123</a></li>
+          <li><a href="mailto:hello@lumiere-demo.example">hello@lumiere-demo.example</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2 class="footer-title">Follow</h2>
+        <ul class="social-list">
+          <li><a href="#" aria-label="LUMIÈRE on Instagram (demo link)"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+          <li><a href="#" aria-label="LUMIÈRE on Facebook (demo link)"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+          <li><a href="#" aria-label="LUMIÈRE on YouTube (demo link)"><svg class="icon" aria-hidden="true"><use href="#i-youtube"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> LUMIÈRE — Restaurant &amp; Dining. Demo project, not a real business.</p>
+      <p>Photos from <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+  </button>
+
+  <!-- Lightbox (native <dialog>: focus trap + Esc handled by the browser) -->
+  <dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+    <button type="button" class="lb-btn lb-close" id="lbClose" aria-label="Close image viewer"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <button type="button" class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+    <figure class="lb-figure">
+      <img id="lbImage" alt="">
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
+    <button type="button" class="lb-btn lb-next" id="lbNext" aria-label="Next image"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+  </dialog>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
